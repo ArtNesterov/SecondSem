@@ -11,7 +11,7 @@ using namespace std;
 * @return считанное значение
 */
 
-double getValue(string report = "");
+double getValue(string& report = "");
 
 /*
 * @brief Считывает координаты точки
