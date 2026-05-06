@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <cstdlib>
 #include "Sphere.h"
@@ -11,7 +11,7 @@ using namespace std;
 * @return считанное значение
 */
 
-double getValue(string& report = "");
+double getValue(const string& report = "");
 
 /*
 * @brief Считывает координаты точки
@@ -44,7 +44,7 @@ int main()
     return 0;
 }
 
-double getValue(string report)
+double getValue(const string& report)
 {
     cout << report;
     double value = 0;
