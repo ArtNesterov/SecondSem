@@ -1,6 +1,5 @@
 #define _USE_MATH_DEFINES
 #include "Sphere.h"
-#include <cmath>
 #include <stdexcept>
 
 using namespace std;
@@ -11,6 +10,48 @@ Sphere::Sphere(const Point& center, const double radius) : center(center), radiu
     {
         throw invalid_argument("Ошибка: радиус шара должен быть положительным.");
     }
+}
+
+Sphere::Sphere(const Sphere& other)
+{
+    center = other.center;
+    radius = other.radius;
+}
+
+Sphere::Sphere(Sphere&& other)
+{
+    center = other.center;
+    radius = other.radius;
+
+    other.radius = 1;
+}
+
+Sphere& Sphere::operator=(const Sphere& other)
+{
+    if (this == &other)
+    {
+        return *this;
+    }
+
+    center = other.center;
+    radius = other.radius;
+
+    return *this;
+}
+
+Sphere& Sphere::operator=(Sphere&& other)
+{
+    if (this == &other)
+    {
+        return *this;
+    }
+
+    center = other.center;
+    radius = other.radius;
+
+    other.radius = 1;
+
+    return *this;
 }
 
 Point Sphere::GetCenter() const
@@ -25,7 +66,7 @@ double Sphere::GetRadius() const
 
 double Sphere::SurfaceArea() const
 {
-    return 4.0 * M_PI * pow(radius,2);
+    return 4.0 * M_PI * radius * radius;
 }
 
 double Sphere::Volume() const
@@ -45,9 +86,10 @@ string Sphere::ToString() const
 Sphere Sphere::Read(istream& in)
 {
     Point center;
-    double radius = 0.0;
+    double radius;
 
     in >> center >> radius;
+
     if (!in)
     {
         throw runtime_error("Ошибка чтения шара из потока.");
