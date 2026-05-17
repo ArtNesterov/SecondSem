@@ -8,7 +8,7 @@ using namespace std;
 
 /**
  * @brief Считать целое число с клавиатуры.
- * @param prompt Подсказка.
+ * @param prompt значение
  * @return Число.
  */
 int ReadInt(const string& prompt)
@@ -33,8 +33,8 @@ int ReadInt(const string& prompt)
 
 /**
  * @brief Считать индекс с клавиатуры.
- * @param prompt Подсказка.
- * @return Индекс.
+ * @param prompt значение
+ * @return Индекс
  */
 Vector::size_type ReadIndex(const string& prompt)
 {
