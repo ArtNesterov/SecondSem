@@ -5,7 +5,7 @@
 #include <string>
 
 /**
- * @brief Коллекция целых чисел на основе динамического массива (вектор).
+ * @brief Коллекция целых чисел на основе вектора.
  */
 class Vector
 {
@@ -20,19 +20,19 @@ public:
 
     /**
      * @brief Конструктор со списком инициализации.
-     * @param values Начальные значения.
+     * @param values Начальные значения
      */
     Vector(std::initializer_list<int> values);
 
     /**
-     * @brief Конструктор копирования.
-     * @param other Вектор-источник.
+     * @brief Конструктор копирования
+     * @param other Вектор-источник
      */
     Vector(const Vector& other);
 
     /**
      * @brief Конструктор перемещения.
-     * @param other Вектор-источник.
+     * @param other Вектор-источник
      */
     Vector(Vector&& other) noexcept;
 
